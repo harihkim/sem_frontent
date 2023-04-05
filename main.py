@@ -50,9 +50,11 @@ if(uploaded_file is not None and submit is True and
     content = res.json()
     # st.write(f"res = {res}")
 
-    st.write(f"content = {content}")
+    id = content["info"]["id"]
+
+    st.write(f"your id is {id}")
     set_id(content["info"]["id"])
-    st.write("Done")
+    st.write("Done uploading")
     set_is_queued(True)
     disable_check(False)
 
