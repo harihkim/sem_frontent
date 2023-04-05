@@ -30,7 +30,8 @@ st.write(" ")
 # submit = st.button(label="submit", disabled=st.session_state.get('is_queued', False))
 submit = st.button(label="submit")
 
-url = "http://localhost:8000/uploadfile/"
+host = "20.235.102.94:8000"
+url = f"http://{host}/uploadfile/"
 
 if uploaded_file is None and submit is True and st.session_state.get("is_queued", False) is False:
     st.warning("**Choose a file first!!**")
@@ -52,8 +53,8 @@ if(uploaded_file is not None and submit is True and
 
     id = content["info"]["id"]
 
-    st.write(f"your id is {id}")
     set_id(content["info"]["id"])
+    st.write(f"your id is {id}")
     st.write("Done uploading")
     set_is_queued(True)
     disable_check(False)
